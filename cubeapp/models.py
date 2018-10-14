@@ -3,7 +3,7 @@ from django.db import models
 
 class RealObject(models.Model):
     name = models.CharField(max_length=100)
-
+    abbreviation = models.ForeignKey('Abbreviation', on_delete=models.CASCADE)
     class Meta:
         verbose_name = "RealObject"
         verbose_name_plural = "RealObjects"
@@ -15,7 +15,6 @@ class RealObject(models.Model):
 class Abbreviation(models.Model):
     first = models.CharField(max_length=1)
     second = models.CharField(max_length=1)
-    real_objects = models.ManyToManyField(RealObject)
 
     class Meta:
         verbose_name = "Abbreviation"
