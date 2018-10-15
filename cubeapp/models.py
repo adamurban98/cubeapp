@@ -3,7 +3,10 @@ from django.db import models
 
 class RealObject(models.Model):
     name = models.CharField(max_length=100)
+    description = models.CharField(max_length=200)
     abbreviation = models.ForeignKey('Abbreviation', on_delete=models.CASCADE)
+
+    
     class Meta:
         verbose_name = "RealObject"
         verbose_name_plural = "RealObjects"
