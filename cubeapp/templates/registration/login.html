@@ -2,8 +2,12 @@
 
 {% block body %}
 <div class="container" >
-    {% if form.errors %}
-    <p class="alert alert-error">Your username and password didn't match. Please try again.</p>
+    {% if messages %}
+        <div class="messages">
+            {% for message in messages %}
+            <div{% if message.tags %} class="alert alert-{{ message.tags }}"{% endif %}>{{ message }}</div>
+            {% endfor %}
+        </deiv>
     {% endif %}
 
     {% if next %}
