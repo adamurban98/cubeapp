@@ -9,7 +9,19 @@
 	<title>{% block page_title %}Cube{% endblock %}</title>
 </head>
 <body>
-{% block body %}
-{% endblock %}
+	<div style="height: 30px"></div>
+
+	{% block messages %}
+	{% if messages %}
+	<div class="messages container">
+		{% for message in messages %}
+		<div{% if message.tags %} class="alert alert-{{ message.tags }}"{% endif %}>{{ message }}</div>
+		{% endfor %}
+	</div>
+	{% endif %}
+	{% endblock %}
+
+	{% block body %}
+	{% endblock %}
 </body>
 </html>

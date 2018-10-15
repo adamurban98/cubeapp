@@ -2,48 +2,39 @@
 
 {% block body %}
 <div class="container">
-	<div style="height: 50px"></div>
 
-	{% if messages %}
-		<div class="messages">
-	    	{% for message in messages %}
-	    	<div{% if message.tags %} class="alert alert-{{ message.tags }}"{% endif %}>{{ message }}</div>
-    		{% endfor %}
-		</deiv>
-	{% endif %}
+    {% if not user.is_anonymous %}
+    <strong>Logged in as</strong>
+    {{ user }} |    
+    {{ user.email }}
+    <a href="{% url 'cubeapp:logout'%}">Logout</a>
+    {% else %}
+    <a href="{% url 'cubeapp:login'%}"><strong>Log in</strong></a>
+    {% endif %}
 
-	{% if not user.is_anonymous %}
-		<strong>Logged in as</strong>
-		{{ user }} |    
-		{{ user.email }}
-		<a href="{% url 'cubeapp:logout'%}">Logout</a>
-	{% else %}
-		<a href="{% url 'cubeapp:login'%}"><strong>Log in</strong></a>
-	{% endif %}
+    <div class="py-5 text-center">
+        <h2>Letter-pair mnemonics dictionary</h2>
+        <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+    </div>
 
-	<div class="py-5 text-center">
-		<h2>Letter-pair mnemonics dictionary</h2>
-		<p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
-	</div>
-
-	<div class="row">
-		<div class="col-3 mb-2">
-			<div class="card ">
-				<div class="card-body">
-					<h5 class="card-title">AB</h5>
-					<p class="card-text">Alphabet</p>
-				</div>
-				<ul class="list-group list-group-flush">
-					<li class="list-group-item">Alphabet</li>
-					<li class="list-group-item">Aboriginals</li>
-					<li class="list-group-item">Alpha</li>
-				</ul>
-				<div class="card-body">
-					<a href="#" class="card-link">View card</a>
-				</div>
-			</div>
-		</div>
-	</div>
+    <div class="row">
+        <div class="col-3 mb-2">
+            <div class="card ">
+                <div class="card-body">
+                    <h5 class="card-title">AB</h5>
+                    <p class="card-text">Alphabet</p>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">Alphabet</li>
+                    <li class="list-group-item">Aboriginals</li>
+                    <li class="list-group-item">Alpha</li>
+                </ul>
+                <div class="card-body">
+                    <a href="#" class="card-link">View card</a>
+                </div>
+            </div>
+        </div>
+    </div>
 
 </div>
 {% endblock %}
