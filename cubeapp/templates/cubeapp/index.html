@@ -18,22 +18,25 @@
     </div>
 
     <div class="row">
+    {% for card in cards %}
+
         <div class="col-3 mb-2">
             <div class="card ">
                 <div class="card-body">
-                    <h5 class="card-title">AB</h5>
-                    <p class="card-text">Alphabet</p>
+                    <h5 class="card-title">{{card.abbreviation}}</h5>
                 </div>
                 <ul class="list-group list-group-flush">
-                    <li class="list-group-item">Alphabet</li>
-                    <li class="list-group-item">Aboriginals</li>
-                    <li class="list-group-item">Alpha</li>
+                    {% for realobject in card.realobjects %}
+                        <li class="list-group-item">{{realobject}}</li>
+                    {% endfor %}
                 </ul>
                 <div class="card-body">
                     <a href="#" class="card-link">View card</a>
                 </div>
             </div>
         </div>
+
+    {% endfor %}
     </div>
 
 </div>
