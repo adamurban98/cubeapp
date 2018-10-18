@@ -11,7 +11,7 @@ def index(request):
     for a in Abbreviation.objects.all():
         card = {}
         card['abbreviation'] = a
-        card['realobjects'] = a.realobject_set.all()
+        card['realobjects'] = a.realobject_set.all()[:3]
         cards.append(card)
     context = {'request': request, 'cards': cards}
     return render(request, 'cubeapp/index.html', context)

@@ -27,7 +27,11 @@
                 </div>
                 <ul class="list-group list-group-flush">
                     {% for realobject in card.realobjects %}
-                        <li class="list-group-item">{{realobject}}</li>
+                        <li class="list-group-item">{{realobject}} 
+                            {% if not realobject.description == "" %} 
+                            <span class="text-secondary">| {{realobject.description}}</span> 
+                            {% endif %}
+                        </li>
                     {% endfor %}
                 </ul>
                 <div class="card-body">
