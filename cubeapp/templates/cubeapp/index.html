@@ -29,7 +29,7 @@
                     {% for realobject in card.realobjects %}
                         <li class="list-group-item">{{realobject}} 
                             {% if not realobject.description == "" %} 
-                            <span class="text-secondary">| {{realobject.description}}</span> 
+                            | <span class="text-secondary">{{realobject.description}}</span>
                             {% endif %}
                         </li>
                     {% endfor %}
