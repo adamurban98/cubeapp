@@ -3,7 +3,7 @@ from django.views.generic import DetailView
 from django.contrib.auth.decorators import login_required
 from django.contrib.messages.views import SuccessMessageMixin
 from django.contrib.auth.views import LoginView
-from .models import Abbreviation
+from .models import Abbreviation, IllegalLetter
 from . import logout_success
 
 

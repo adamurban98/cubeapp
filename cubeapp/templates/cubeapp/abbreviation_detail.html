@@ -8,7 +8,12 @@
 		</div>
 		<ul class="list-group list-group-flush">
 		{% for realobject in object.realobject_set.all %}
-			<li class="list-group-item">{{realobject}}</li>
+			<li class="list-group-item">
+			{{realobject}}
+            {% if not realobject.description == "" %} 
+            | <span class="text-secondary">{{realobject.description}}</span>
+            {% endif %}
+			</li>
 		{% endfor %}
 		</ul>
 	</div>
