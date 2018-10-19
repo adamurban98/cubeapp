@@ -7,7 +7,6 @@ class RealObject(models.Model):
     description = models.CharField(max_length=200)
     abbreviation = models.ForeignKey('Abbreviation', on_delete=models.CASCADE)
 
-    
     class Meta:
         verbose_name = "RealObject"
         verbose_name_plural = "RealObjects"
