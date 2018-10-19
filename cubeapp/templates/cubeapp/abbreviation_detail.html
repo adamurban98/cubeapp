@@ -1,0 +1,18 @@
+{% extends "cubeapp/base.html" %}
+
+{% block body %}
+<div class="container">
+	<div class="card">
+		<div class="card-header">
+			<h1>Letter pair: {{ object.first.upper }}{{ object.second.upper }}</h1>
+		</div>
+		<ul class="list-group list-group-flush">
+		{% for realobject in object.realobject_set.all %}
+			<li class="list-group-item">{{realobject}}</li>
+		{% endfor %}
+		</ul>
+	</div>
+</div>
+
+
+{% endblock %}

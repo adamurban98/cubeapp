@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 
 
 class RealObject(models.Model):
@@ -25,3 +26,6 @@ class Abbreviation(models.Model):
 
     def __str__(self):
         return (self.first + self.second).upper()
+
+    def get_absolute_url(self):
+        return reverse('cubeapp:pair-detail', args=[self.pk])

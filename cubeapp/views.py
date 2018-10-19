@@ -1,4 +1,5 @@
 from django.shortcuts import render, get_object_or_404
+from django.views.generic import DetailView
 from django.contrib.auth.decorators import login_required
 from django.contrib.messages.views import SuccessMessageMixin
 from django.contrib.auth.views import LoginView
@@ -32,3 +33,7 @@ class LoginSuccessView(SuccessMessageMixin, LoginView):
 
     def get_succes_message(self, cleaned_data):
         return 'login succes'
+
+
+class AbbreviationDetail(DetailView):
+    model = Abbreviation
