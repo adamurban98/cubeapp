@@ -35,7 +35,7 @@ class Abbreviation(models.Model):
 class IllegalLetter(models.Model):
     letter = models.CharField(max_length=1)
     replace = models.CharField(max_length=1, blank=True)
-    user = models.ForeignKey(User, on_delete='CASCADE', related_name='illegalletter')
+    user = models.ForeignKey(User, on_delete='CASCADE')
 
     class Meta:
         verbose_name = 'IllegalLetter'
