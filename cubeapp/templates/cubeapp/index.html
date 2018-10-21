@@ -4,7 +4,7 @@
 <div class="container">
 
     {% if not user.is_anonymous %}
-    <strong>Logged in as</strong>
+    <strong><a href="{% url 'cubeapp:me-detail' %}">Logged in</a> as</strong>
     {{ user }} |    
     {{ user.email }}
     <a href="{% url 'cubeapp:logout'%}">Logout</a>

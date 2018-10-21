@@ -1,0 +1,39 @@
+{% extends "cubeapp/base.html" %}
+
+{% block body %}
+
+<div class="container">
+<h1>Your user profile <small>only you can see this page</small></h1>
+<h2>General user data</h2>
+<table class="table table-striped table-bordered">
+	<tr>
+		<td>Username</td>
+		<td>{{object.username}}</td>
+	</tr>
+	<tr>
+		<td>E-mail</td>
+		<td>{{object.email}}</td>
+	</tr>
+</table>
+<h2>Alphabet prefrences</h2>
+{% if illegalletters.count != 0 %}
+	
+<table class="table table-bordered">
+	{% for illegalletter in illegalletters %}
+	<tr class="table-{% if illegalletter.replace != '' %}warning{% else %}danger{% endif %}">
+		<td>{{illegalletter.letter.upper}}</td>
+		<td>
+			{% if illegalletter.replace != '' %}
+				replace with {{illegalletter.replace.upper}}
+			{% else %}
+				do not use at all
+			{% endif %}
+		</td>
+	</tr>
+	{% endfor %}
+</table>
+{% else %}
+	<div class=" alert alert-info">You have not set any special alphabetic preferences yet.</div>	
+{% endif %}
+</div>
+{% endblock %}
