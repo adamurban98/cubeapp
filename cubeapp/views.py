@@ -33,8 +33,8 @@ class LoginSuccessView(SuccessMessageMixin, LoginView):
     success_message = 'Succesfully logged in!'
     succes_url = '/admin'
 
-    def get_succes_message(self, cleaned_data):
-        return 'login succes'
+    def get_success_message(self, cleaned_data):
+        return 'login success'
 
 
 class AbbreviationDetail(DetailView):
