@@ -16,10 +16,10 @@ services: postgresql
 
 
 before_install:
-  - export DJANGO_SETTINGS_MODULE=your_project.settings
-  - export PYTHONPATH=$HOME/builds/adamurban98/cubeapp
-  - export PIP_USE_MIRRORS=true
-
+#  - export DJANGO_SETTINGS_MODULE=your_project.settings
+#  - export PYTHONPATH=$HOME/builds/adamurban98/cubeapp
+#  - export PIP_USE_MIRRORS=true
+  - true
 install:
   - pip install -r requirements.txt
 
