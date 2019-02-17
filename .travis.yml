@@ -4,6 +4,29 @@ python:
 
   - "3.5"
 
+env:
+  - TRAVIS = True
+
 script: 
 
   - true
+
+
+services: postgresql
+
+
+before_install:
+  - export DJANGO_SETTINGS_MODULE=your_project.settings
+  - export PYTHONPATH=$HOME/builds/adamurban98/cubeapp
+  - export PIP_USE_MIRRORS=true
+
+install:
+  - pip install -r requirements.txt
+
+before_script:
+  - psql -c "CREATE DATABASE mydb;" -U postgres
+
+script:
+  - python3 manage.py makemigrations
+  - python3 manage.py migrate
+  - python3 manage.py test
