@@ -1,12 +1,11 @@
-from django.shortcuts import render, get_object_or_404
 from django.views.generic import DetailView
+from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
 from django.contrib.messages.views import SuccessMessageMixin
 from django.contrib.auth.views import LoginView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.models import User
-from .models import Abbreviation, IllegalLetter
-from . import logout_success
+from .models import Abbreviation
 
 
 def index(request):
@@ -41,7 +40,7 @@ class AbbreviationDetail(DetailView):
     model = Abbreviation
 
 
-class MeUserDetailView(LoginRequiredMixin,DetailView):
+class MeUserDetailView(LoginRequiredMixin, DetailView):
     model = User
     template_name = 'cubeapp/user_detail.html'
     login_url = '/login'

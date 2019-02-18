@@ -24,7 +24,7 @@ class Abbreviation(models.Model):
     class Meta:
         verbose_name = "Abbreviation"
         verbose_name_plural = "Abbreviations"
-        unique_together = (("first","second"),)
+        unique_together = (("first", "second"),)
 
     def __str__(self):
         return (self.first + self.second).upper()
